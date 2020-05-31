@@ -1,0 +1,14 @@
+for face embedding to pickle file:
+python extract_embeddings.py --dataset dataset  --embeddings output/embedding.pickle  --detector face_detection_model  --embedding-model openface_nn4.small2.v1.t7
+
+
+For training SVM:
+python train_model.py --embeddings output/embedding.pickle --recognizer output/recognizer.pickle  --le output/le.pickle
+
+For video streaming:
+python recognize_video.py --detector face_detection_model --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --le output/le.pickle
+
+
+For image recognition:
+
+python recognize.py --detector face_detection_model --embedding-model openface_nn4.small2.v1.t7 --recognizer output/recognizer.pickle --le output/le.pickle --image images/patrick_bateman.jpg
